@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Tempo de Namoro</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link para o CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Contador de tempo (no topo, centralizado) -->
+    <div id="contador" style="display: none;">
+        <h2>Eu te amo há:</h2>
+        <p id="tempo"></p>
+    </div>
+
+    <!-- Container principal -->
+    <div id="container">
+        <!-- Lado esquerdo: Carrossel de Fotos -->
+        <div id="lado-esquerdo">
+            <div id="carrossel" style="display: none;">
+                <div class="fotos">
+                    <img src="1.jpg" alt="Foto 1">
+                    <img src="2.jpg" alt="Foto 2">
+                    <img src="3.jpg" alt="Foto 3">
+                    <img src="4.jpg" alt="Foto 4">
+                    <img src="5.jpg" alt="Foto 5">
+                    <img src="6.jpg" alt="Foto 6">
+                    <img src="7.jpg" alt="Foto 7">
+                    <img src="8.jpg" alt="Foto 8">
+                    <img src="9.jpg" alt="Foto 9">
+                    <img src="10.jpg" alt="Foto 10">
+                    <img src="11.jpg" alt="Foto 11">
+                    <img src="12.jpg" alt="Foto 12">
+                    <img src="13.jpg" alt="Foto 13">
+                    <img src="14.jpg" alt="Foto 14">
+                    <img src="15.jpg" alt="Foto 15">
+                    <img src="16.jpg" alt="Foto 16">
+                    <img src="17.jpg" alt="Foto 17">
+                    <img src="18.jpg" alt="Foto 18">
+                    <img src="19.jpeg" alt="Foto 19">
+                    <img src="20.jpg" alt="Foto 19">
+                    <img src="21.jpg" alt="Foto 19">
+                    <img src="22.jpg" alt="Foto 19">
+                    <img src="23.jpeg" alt="Foto 19">
+                    <img src="24.jpg" alt="Foto 19">
+                    <img src="25.jpg" alt="Foto 19">
+                    <img src="25.jpg" alt="Foto 19">
+                    <img src="26.jpg" alt="Foto 19">
+                    <img src="27.jpg" alt="Foto 19">
+                    <img src="28.jpg" alt="Foto 19">
+                    <img src="29.jpg" alt="Foto 19">
+                    <img src="30.jpg" alt="Foto 19">
+                    <img src="31.jpg" alt="Foto 19">
+                    <img src="32.jpg" alt="Foto 19">
+                    <img src="33.jpg" alt="Foto 19">
+                    <img src="34.jpg" alt="Foto 19">
+                    <img src="35.jpg" alt="Foto 19">
+                    <img src="36.jpg" alt="Foto 19">
+                    <img src="37.jpg" alt="Foto 19">
+                    <img src="38.jpg" alt="Foto 19">
+                    <img src="39.jpg" alt="Foto 19">
+                    <img src="40.jpg" alt="Foto 19">
+                    <img src="41.jpg" alt="Foto 19">
+                    <img src="42.jpg" alt="Foto 19">
+                    <img src="43.jpg" alt="Foto 19">
+                    <img src="44.jpg" alt="Foto 19">
+                    <img src="45.jpg" alt="Foto 19">
+                    <img src="46.jpg" alt="Foto 19">
+                    <img src="47.jpg" alt="Foto 19">
+                    <img src="48.jpg" alt="Foto 19">
+                    <img src="49.jpg" alt="Foto 19">
+                    <img src="50.jpeg" alt="Foto 19">
+                    <img src="51.jpg" alt="Foto 19">    
+                    <img src="52.jpg" alt="Foto 19">
+                    <img src="53.jpg" alt="Foto 19">
+                    <img src="54.jpg" alt="Foto 19">
+                    <img src="55.jpg" alt="Foto 19">
+                    <img src="56.jpg" alt="Foto 19">
+                    <img src="57.jpg" alt="Foto 19">
+                    <img src="58.jpg" alt="Foto 19">
+                    <img src="59.jpg" alt="Foto 19">
+                    <!-- Adicione mais fotos aqui -->
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Lado direito: Player do Spotify e Texto -->
+        <div id="lado-direito">
+            <!-- Player do Spotify (inicialmente escondido) -->
+            <div id="spotify-player" style="display: none;">
+                <iframe
+                    id="spotify-iframe"
+                    src="https://open.spotify.com/embed/playlist/4EMhnJuBMk47nHOuT8JJUa?utm_source=generator"
+                    width="400"
+                    height="152"
+                    allowtransparency="true"
+                    allow="encrypted-media"
+                ></iframe>
+            </div>
+
+            <!-- Linha divisória -->
+            <div id="linha-divisoria" style="display: none;"></div>
+
+            <!-- Texto romântico (inicialmente escondido) -->
+            <div id="texto-romantico" style="display: none;">
+                <p>
+                    A cada dia que passa, meu coração se enche mais de carinho e admiração por você. Cada sorriso seu ilumina o meu mundo, e cada abraço me faz sentir que estou exatamente onde deveria estar. Você é a razão dos meus melhores pensamentos, e tudo ao seu lado se torna mais bonito e significativo. Eu te amo para sempre🤍
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão inicial -->
+    <button id="botaoIniciar">
+        <svg class="icone-coracao" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        Click
+    </button>
+
+    <!-- Container para os corações que caem -->
+    <div id="coracoes-container"></div>
+
+
+    <!-- Modal -->
+<div id="modal" style="display: none;">
+    <div class="modal-conteudo">
+        <h2>Para uma melhor experiência:</h2>
+        <p>Coloque seu fone de ouvido e dê play na música (eu sugiro a música: "DUAS METADES"). <br>
+Estou fazendo uma playlist para gente, então vc pode acessar essa playlist no Spotify e adicionar mais músicas para gente.
+        </p>
+        <label>
+            <input type="checkbox" id="check-feito"> Feito!
+        </label>
+        <button id="btn-entendi" disabled>Entendi</button>
+    </div>
+</div>
+
+
+    <script src="script.js"></script> <!-- Link para o JavaScript -->
+</body>
+</html>
