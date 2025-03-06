@@ -297,34 +297,35 @@ body {
     }
 
     #carrossel {
-        width: 100%;
-        height: auto;
-        max-width: 300px;
+        width: 90%; /* Ocupa 90% da largura da tela */
+        height: 200px; /* Altura fixa para telas pequenas */
+        max-width: 300px; /* Largura máxima para telas pequenas */
     }
 
     .fotos img {
-        width: 100%;
-        height: auto;
+        width: 2%; /* Ocupa 100% da largura do carrossel */
+        height: 200px; /* Altura fixa para telas pequenas */
+        object-fit: cover; /* Preenche o espaço sem distorcer */
     }
 
     #spotify-player {
-        width: 100%;
-        max-width: 300px;
+        width: 100%; /* Ocupa 100% da largura da tela */
+        max-width: 300px; /* Largura máxima para telas pequenas */
     }
 
     #texto-romantico {
-        font-size: 14px;
-        padding: 10px;
+        font-size: 14px; /* Reduz o tamanho da fonte */
+        padding: 10px; /* Reduz o padding */
     }
 
     #contador {
-        width: 100%;
-        max-width: 300px;
-        font-size: 16px;
+        width: 100%; /* Ocupa 100% da largura da tela */
+        max-width: 300px; /* Largura máxima para telas pequenas */
+        font-size: 16px; /* Reduz o tamanho da fonte */
     }
 
     #botaoIniciar {
-        font-size: 18px;
-        padding: 15px 30px;
+        font-size: 18px; /* Reduz o tamanho da fonte */
+        padding: 15px 30px; /* Reduz o padding */
     }
 }
