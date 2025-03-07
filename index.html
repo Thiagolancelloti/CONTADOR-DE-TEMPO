@@ -6,7 +6,6 @@
     <title>Contador de Tempo de Namoro</title>
     <link rel="stylesheet" href="style.css"> <!-- Link para o CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <!-- Contador de tempo (no topo, centralizado) -->
@@ -31,58 +30,7 @@
                     <img src="8.jpg" alt="Foto 8">
                     <img src="9.jpg" alt="Foto 9">
                     <img src="10.jpg" alt="Foto 10">
-                    <img src="11.jpg" alt="Foto 11">
-                    <img src="12.jpg" alt="Foto 12">
-                    <img src="13.jpg" alt="Foto 13">
-                    <img src="14.jpg" alt="Foto 14">
-                    <img src="15.jpg" alt="Foto 15">
-                    <img src="16.jpg" alt="Foto 16">
-                    <img src="17.jpg" alt="Foto 17">
-                    <img src="18.jpg" alt="Foto 18">
-                    <img src="19.jpeg" alt="Foto 19">
-                    <img src="20.jpg" alt="Foto 19">
-                    <img src="21.jpg" alt="Foto 19">
-                    <img src="22.jpg" alt="Foto 19">
-                    <img src="23.jpeg" alt="Foto 19">
-                    <img src="24.jpg" alt="Foto 19">
-                    <img src="25.jpg" alt="Foto 19">
-                    <img src="25.jpg" alt="Foto 19">
-                    <img src="26.jpg" alt="Foto 19">
-                    <img src="27.jpg" alt="Foto 19">
-                    <img src="28.jpg" alt="Foto 19">
-                    <img src="29.jpg" alt="Foto 19">
-                    <img src="30.jpg" alt="Foto 19">
-                    <img src="31.jpg" alt="Foto 19">
-                    <img src="32.jpg" alt="Foto 19">
-                    <img src="33.jpg" alt="Foto 19">
-                    <img src="34.jpg" alt="Foto 19">
-                    <img src="35.jpg" alt="Foto 19">
-                    <img src="36.jpg" alt="Foto 19">
-                    <img src="37.jpg" alt="Foto 19">
-                    <img src="38.jpg" alt="Foto 19">
-                    <img src="39.jpg" alt="Foto 19">
-                    <img src="40.jpg" alt="Foto 19">
-                    <img src="41.jpg" alt="Foto 19">
-                    <img src="42.jpg" alt="Foto 19">
-                    <img src="43.jpg" alt="Foto 19">
-                    <img src="44.jpg" alt="Foto 19">
-                    <img src="45.jpg" alt="Foto 19">
-                    <img src="46.jpg" alt="Foto 19">
-                    <img src="47.jpg" alt="Foto 19">
-                    <img src="48.jpg" alt="Foto 19">
-                    <img src="49.jpg" alt="Foto 19">
-                    <img src="50.jpeg" alt="Foto 19">
-                    <img src="51.jpg" alt="Foto 19">    
-                    <img src="52.jpg" alt="Foto 19">
-                    <img src="53.jpg" alt="Foto 19">
-                    <img src="54.jpg" alt="Foto 19">
-                    <img src="55.jpg" alt="Foto 19">
-                    <img src="56.jpg" alt="Foto 19">
-                    <img src="57.jpg" alt="Foto 19">
-                    <img src="58.jpg" alt="Foto 19">
-                    <img src="59.jpg" alt="Foto 19">
                     <!-- Adicione mais fotos aqui -->
-
                 </div>
             </div>
         </div>
@@ -124,21 +72,31 @@
     <!-- Container para os corações que caem -->
     <div id="coracoes-container"></div>
 
-
     <!-- Modal -->
-<div id="modal" style="display: none;">
-    <div class="modal-conteudo">
-        <h2>Para uma melhor experiência:</h2>
-        <p>Coloque seu fone de ouvido e dê play na música (eu sugiro a música: "DUAS METADES"). <br>
-Estou fazendo uma playlist para gente, então vc pode acessar essa playlist no Spotify e adicionar mais músicas para gente.
-        </p>
-        <label>
-            <input type="checkbox" id="check-feito"> Feito!
-        </label>
-        <button id="btn-entendi" disabled>Entendi</button>
+    <div id="modal" style="display: none;">
+        <div class="modal-conteudo">
+            <h2>Para uma melhor experiência:</h2>
+            <p>Coloque seu fone de ouvido e dê play na música (eu sugiro a música: "DUAS METADES"). <br>
+            Estou fazendo uma playlist para gente, então vc pode acessar essa playlist no Spotify e adicionar mais músicas para gente.
+            </p>
+            <label>
+                <input type="checkbox" id="check-feito"> Feito!
+            </label>
+            <button id="btn-entendi" disabled>Entendi</button>
+        </div>
     </div>
-</div>
 
+    <!-- Modal para o carrossel ampliado -->
+    <div id="modal-carrossel" style="display: none;">
+        <div class="modal-conteudo-carrossel">
+            <div id="carrossel-ampliado">
+                <div class="fotos-ampliadas">
+                    <!-- As mesmas fotos do carrossel original serão injetadas aqui via JavaScript -->
+                </div>
+            </div>
+            <button id="fechar-modal-carrossel">Fechar</button>
+        </div>
+    </div>
 
     <script src="script.js"></script> <!-- Link para o JavaScript -->
 </body>
