@@ -7,27 +7,27 @@
 
 body {
     font-family: 'Times New Roman', Times, serif;
-    background-color: #0a1f44; /* Fundo azul escuro */
+    background-color: #0a1f44;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Alinha o conteúdo no topo */
+    justify-content: flex-start;
     height: 100vh;
     color: white;
-    overflow: hidden; /* Impede a barra de rolagem */
+    overflow: hidden;
 }
 
-/* Contador de tempo (no topo, centralizado) */
+/* Contador de tempo */
 #contador {
     text-align: center;
     background-color: rgba(255, 255, 255, 0.1);
     padding: 20px;
-    border-radius: 12px; /* Bordas arredondadas */
-    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4; /* Borda neon azul */
+    border-radius: 12px;
+    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
     backdrop-filter: blur(10px);
-    margin-top: 20px; /* Espaçamento do topo */
+    margin-top: 20px;
     width: 90%;
-    max-width: 600px; /* Largura máxima */
+    max-width: 600px;
 }
 
 #contador h2 {
@@ -45,51 +45,61 @@ body {
 /* Container principal */
 #container {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: flex-start; /* Alinha os itens no topo */
-    height: 100vh;
-    gap: 40px; /* Espaço entre os lados */
-    max-width: 1200px; /* Largura máxima do conteúdo */
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1200px;
     width: 100%;
     padding: 20px;
-    margin-top: 20px; /* Espaçamento do contador */
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    #container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
 }
 
 /* Lado esquerdo: Carrossel de Fotos */
 #lado-esquerdo {
     flex: 1;
-    max-width: 600px; /* Largura máxima do carrossel */
+    max-width: 600px;
 }
 
-/* Estilo do carrossel */
 #carrossel {
-    width: 600px; /* Largura fixa para o carrossel */
-    height: 400px; /* Altura fixa para o carrossel */
-    overflow: hidden; /* Esconde fotos que ultrapassam o container */
-    border-radius: 12px; /* Bordas arredondadas */
-    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4; /* Borda neon azul */
-    background-color: black; /* Fundo preto para o carrossel */
-    margin: 0 auto; /* Centraliza o carrossel na página */
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+    background-color: black;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    #carrossel {
+        height: 400px;
+    }
 }
 
 .fotos {
     display: flex;
-    width: calc(100% * var(--total-fotos)); /* Largura total baseada no número de fotos */
-    animation: carrossel calc(var(--total-fotos) * 60s) infinite linear; /* Animação contínua e suave */
-    height: 100%; /* Altura igual à do contêiner do carrossel */
-    transition: transform 1s linear; /* Transição suave para o movimento */
+    width: calc(100% * var(--total-fotos));
+    animation: carrossel calc(var(--total-fotos) * 60s) infinite linear;
+    height: 100%;
 }
 
 .fotos img {
-    width: 500px; /* Largura fixa para cada foto (igual à do carrossel) */
-    height: 400px; /* Altura fixa para cada foto (igual à do carrossel) */
-    object-fit: cover; /* Preenche o contêiner sem áreas vazias */
-    object-position: center; /* Centraliza o foco da imagem */
-    border-radius: 12px; /* Bordas arredondadas */
-    flex-shrink: 0; /* Impede que as fotos encolham */
-    margin: 0; /* Remove margens entre as fotos */
-    padding: 0; /* Remove espaçamentos internos */
-    display: block; /* Remove espaços inline */
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
+    flex-shrink: 0;
 }
 
 @keyframes carrossel {
@@ -97,64 +107,71 @@ body {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-100% * var(--total-fotos) / 2)); /* Move o carrossel com base no número de fotos */
+        transform: translateX(calc(-100% * var(--total-fotos) / 2));
     }
 }
 
-/* Lado direito: Player do Spotify */
+/* Lado direito: Player do Spotify e Texto */
 #lado-direito {
     flex: 1;
-    max-width: 400px; /* Largura máxima do lado direito */
+    max-width: 400px;
 }
 
-/* Player do Spotify */
+@media (max-width: 768px) {
+    #lado-direito {
+        width: 100%;
+        max-width: none;
+    }
+}
+
 #spotify-player {
     width: 100%;
-    border-radius: 12px; /* Bordas arredondadas */
-    overflow: hidden; /* Garante que o conteúdo não ultrapasse as bordas */
-    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4; /* Borda neon azul */
+    max-width: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+    margin: 0 auto;
 }
 
-/* Ajustes para o iframe */
 #spotify-iframe {
     width: 100%;
-    height: 152px; /* Altura do player */
-    border: none; /* Remove a borda */
-    outline: none; /* Remove o contorno */
-    border-radius: 12px; /* Bordas arredondadas */
+    height: 152px;
+    border: none;
+    border-radius: 12px;
 }
 
-/* Linha divisória */
-#linha-divisoria {
-    width: 100%;
-    height: 2px;
-    background-color: white;
-    box-shadow: 0 0 10px white, 0 0 20px white; /* Efeito neon */
-    margin: 20px 0; /* Espaçamento acima e abaixo */
+@media (max-width: 768px) {
+    #spotify-iframe {
+        height: 100px;
+    }
 }
 
-/* Texto romântico */
 #texto-romantico {
     text-align: center;
-    font-size: 16px; /* Reduzi o tamanho da fonte */
+    font-size: 16px;
     line-height: 1.6;
     color: white;
     margin-top: 20px;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 12px; /* Bordas arredondadas */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5); /* Efeito neon */
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
-    max-width: 400px; /* Largura máxima para não sair do enquadramento */
+    max-width: 400px;
     margin-left: auto;
-    margin-right: auto; /* Centraliza o texto */
+    margin-right: auto;
 }
 
-#texto-romantico p {
-    margin: 0;
+@media (max-width: 768px) {
+    #texto-romantico {
+        width: 100%;
+        max-width: none;
+        font-size: 14px;
+        padding: 10px;
+    }
 }
 
-/* Estilo do botão */
+/* Botão Iniciar */
 #botaoIniciar {
     position: fixed;
     top: 50%;
@@ -166,50 +183,48 @@ body {
     gap: 15px;
     background-color: transparent;
     color: white;
-    border: 2px solid #00bcd4; /* Borda azul neon */
+    border: 2px solid #00bcd4;
     padding: 20px 40px;
     border-radius: 50px;
     font-size: 24px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4; /* Efeito neon */
-    z-index: 1000; /* Garante que fique acima de outros elementos */
+    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+    z-index: 1000;
 }
 
-#botaoIniciar:hover {
-    background-color: rgba(0, 188, 212, 0.1);
-    box-shadow: 0 0 20px #00bcd4, 0 0 30px #00bcd4;
-}
-
-#botaoIniciar:active {
-    transform: translate(-50%, -50%) scale(0.95);
+@media (max-width: 768px) {
+    #botaoIniciar {
+        font-size: 18px;
+        padding: 15px 30px;
+    }
 }
 
 /* Ícone de coração */
 .icone-coracao {
     width: 30px;
     height: 30px;
-    fill: #ff4d4d; /* Coração vermelho */
+    fill: #ff4d4d;
 }
 
-/* Estilo dos corações que caem */
+/* Corações que caem */
 .coracao {
     position: absolute;
-    top: -50px; /* Começa acima da tela */
+    top: -50px;
     width: 30px;
     height: 30px;
-    fill: #ff4d4d; /* Coração vermelho */
-    filter: drop-shadow(0 0 5px #00bcd4) drop-shadow(0 0 10px #00bcd4); /* Borda neon azul */
+    fill: #ff4d4d;
+    filter: drop-shadow(0 0 5px #00bcd4) drop-shadow(0 0 10px #00bcd4);
     animation: cair linear infinite;
 }
 
 @keyframes cair {
     to {
-        transform: translateY(100vh); /* Cai até o final da tela */
+        transform: translateY(100vh);
     }
 }
 
-/* Efeito de fade-in para o contador */
+/* Efeito de fade-in */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -223,27 +238,27 @@ body {
     animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Estilo do modal */
+/* Modal */
 #modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro semi-transparente */
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1001; /* Garante que o modal fique acima de tudo */
+    z-index: 1001;
 }
 
 .modal-conteudo {
-    background-color: #0a1f44; /* Fundo azul escuro */
+    background-color: #0a1f44;
     padding: 20px;
-    border-radius: 12px; /* Bordas arredondadas */
-    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4; /* Borda neon azul */
+    border-radius: 12px;
+    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
     text-align: center;
-    max-width: 400px; /* Largura máxima do modal */
+    max-width: 400px;
     width: 90%;
 }
 
@@ -267,7 +282,7 @@ body {
 }
 
 .modal-conteudo button {
-    background-color: #00bcd4; /* Cor azul neon */
+    background-color: #00bcd4;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -278,84 +293,11 @@ body {
 }
 
 .modal-conteudo button:disabled {
-    background-color: #555; /* Cor cinza quando desabilitado */
+    background-color: #555;
     cursor: not-allowed;
 }
 
 .modal-conteudo button:hover:not(:disabled) {
-    background-color: #0097a7; /* Cor azul mais escura ao passar o mouse */
-    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4; /* Efeito neon */
-}
-
-/* Estilos responsivos para telas pequenas */
-@media (max-width: 768px) {
-    #carrossel {
-        width: 100%; /* Ocupa 100% da largura disponível */
-        max-width: 600px; /* Largura máxima */
-        height: 200px; /* Altura menor para telas pequenas */
-        overflow: hidden;
-        border-radius: 12px;
-        box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
-        background-color: black;
-        margin: 0 auto; /* Centraliza o carrossel */
-    }
-
-    .fotos {
-        display: flex;
-        width: calc(100% * var(--total-fotos));
-        animation: carrossel calc(var(--total-fotos) * 60s) infinite linear;
-        height: 100%;
-    }
-    
-    .fotos img {
-        width: 500px; /* Largura fixa para telas maiores */
-        height: 400px; /* Altura fixa para telas maiores */
-        object-fit: cover; /* Preenche o espaço sem distorcer */
-        object-position: center; /* Centraliza o foco da imagem */
-        border-radius: 12px;
-        flex-shrink: 0;
-    }
-
-    #spotify-player {
-        width: 100%;
-        max-width: 400px; /* Largura máxima */
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
-    }
-    #spotify-iframe {
-        width: 100%;
-        height: 100px; /* Altura fixa */
-        border: none;
-        border-radius: 12px;
-    }
-
-    #texto-romantico {
-        text-align: center;
-        font-size: 14px;
-        line-height: 1.6;
-        color: white;
-        margin-top: 20px;
-        padding: 10px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5);
-        backdrop-filter: blur(10px);
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #contador h2 {
-        font-size: 20px; /* Fonte menor para telas pequenas */
-    }
-
-    #contador p {
-        font-size: 16px; /* Fonte menor para telas pequenas */
-    }
-
-    #botaoIniciar {
-        font-size: 18px;
-        padding: 15px 30px;
-    }
+    background-color: #0097a7;
+    box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
 }
