@@ -289,43 +289,73 @@ body {
 
 /* Estilos responsivos para telas pequenas */
 @media (max-width: 768px) {
-    #container {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 10px;
-    }
-
     #carrossel {
-        width: 90%; /* Ocupa 90% da largura da tela */
-        height: 200px; /* Altura fixa para telas pequenas */
-        max-width: 300px; /* Largura máxima para telas pequenas */
+        width: 100%; /* Ocupa 100% da largura disponível */
+        max-width: 600px; /* Largura máxima */
+        height: 200px; /* Altura menor para telas pequenas */
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+        background-color: black;
+        margin: 0 auto; /* Centraliza o carrossel */
     }
 
+    .fotos {
+        display: flex;
+        width: calc(100% * var(--total-fotos));
+        animation: carrossel calc(var(--total-fotos) * 60s) infinite linear;
+        height: 100%;
+    }
+    
     .fotos img {
-        width: 2%; /* Ocupa 100% da largura do carrossel */
-        height: 200px; /* Altura fixa para telas pequenas */
+        width: 500px; /* Largura fixa para telas maiores */
+        height: 400px; /* Altura fixa para telas maiores */
         object-fit: cover; /* Preenche o espaço sem distorcer */
+        object-position: center; /* Centraliza o foco da imagem */
+        border-radius: 12px;
+        flex-shrink: 0;
     }
 
     #spotify-player {
-        width: 100%; /* Ocupa 100% da largura da tela */
-        max-width: 300px; /* Largura máxima para telas pequenas */
+        width: 100%;
+        max-width: 400px; /* Largura máxima */
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+    }
+    #spotify-iframe {
+        width: 100%;
+        height: 100px; /* Altura fixa */
+        border: none;
+        border-radius: 12px;
     }
 
     #texto-romantico {
-        font-size: 14px; /* Reduz o tamanho da fonte */
-        padding: 10px; /* Reduz o padding */
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.6;
+        color: white;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    #contador {
-        width: 100%; /* Ocupa 100% da largura da tela */
-        max-width: 300px; /* Largura máxima para telas pequenas */
-        font-size: 16px; /* Reduz o tamanho da fonte */
+    #contador h2 {
+        font-size: 20px; /* Fonte menor para telas pequenas */
+    }
+
+    #contador p {
+        font-size: 16px; /* Fonte menor para telas pequenas */
     }
 
     #botaoIniciar {
-        font-size: 18px; /* Reduz o tamanho da fonte */
-        padding: 15px 30px; /* Reduz o padding */
+        font-size: 18px;
+        padding: 15px 30px;
     }
 }
