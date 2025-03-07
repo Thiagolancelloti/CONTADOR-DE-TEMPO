@@ -139,6 +139,15 @@ body {
     border: none;
     border-radius: 12px;
 }
+/* Aviso do Spotify */
+.aviso-spotify {
+    text-align: center;
+    font-size: 14px;
+    color: #00bcd4;
+    margin-top: 10px;
+    cursor: pointer;
+    text-decoration: underline;
+}
 
 @media (max-width: 768px) {
     #spotify-iframe {
