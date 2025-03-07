@@ -50,6 +50,37 @@ function configurarCarrossel() {
     setInterval(moverCarrossel, 3000); // Move o carrossel a cada 3 segundos
 }
 
+// Função para configurar o carrossel ampliado
+function configurarCarrosselAmpliado() {
+    const fotosAmpliadas = document.querySelector('.fotos-ampliadas');
+    const fotos = document.querySelectorAll('.fotos-ampliadas img');
+    const totalFotos = fotos.length;
+    document.documentElement.style.setProperty('--total-fotos', totalFotos);
+
+    const larguraFoto = fotos[0].clientWidth;
+    let posicaoAtual = 0;
+
+    function moverCarrosselAmpliado() {
+        posicaoAtual -= larguraFoto; // Move para a próxima foto
+        fotosAmpliadas.style.transform = `translateX(${posicaoAtual}px)`;
+
+        // Verifica se chegou ao final do carrossel
+        if (Math.abs(posicaoAtual) >= larguraFoto * totalFotos) {
+            // Reinicia suavemente para o início
+            setTimeout(() => {
+                fotosAmpliadas.style.transition = 'none'; // Remove a transição para o reset
+                posicaoAtual = 0;
+                fotosAmpliadas.style.transform = `translateX(${posicaoAtual}px)`;
+                setTimeout(() => {
+                    fotosAmpliadas.style.transition = 'transform 1s linear'; // Restaura a transição
+                }, 50);
+            }, 1000); // Aguarda o término da transição atual
+        }
+    }
+
+    setInterval(moverCarrosselAmpliado, 3000); // Move o carrossel a cada 3 segundos
+}
+
 // Função para criar corações que caem
 function criarCoracao() {
     const coracao = document.createElement('div');
@@ -120,3 +151,35 @@ document.getElementById('botaoIniciar').addEventListener('click', (event) => {
     event.preventDefault();
     exibirModal();
 });
+
+// Função para abrir o modal do carrossel
+function abrirModalCarrossel() {
+    const modalCarrossel = document.getElementById('modal-carrossel');
+    const fotosAmpliadas = document.querySelector('.fotos-ampliadas');
+    const fotosOriginais = document.querySelectorAll('.fotos img');
+
+    // Copia as fotos do carrossel original para o modal ampliado
+    fotosAmpliadas.innerHTML = '';
+    fotosOriginais.forEach(foto => {
+        const novaFoto = foto.cloneNode(true);
+        fotosAmpliadas.appendChild(novaFoto);
+    });
+
+    // Exibe o modal
+    modalCarrossel.style.display = 'flex';
+
+    // Configura o carrossel ampliado
+    configurarCarrosselAmpliado();
+}
+
+// Função para fechar o modal do carrossel
+function fecharModalCarrossel() {
+    const modalCarrossel = document.getElementById('modal-carrossel');
+    modalCarrossel.style.display = 'none';
+}
+
+// Adiciona o evento de clique ao carrossel original
+document.getElementById('carrossel').addEventListener('click', abrirModalCarrossel);
+
+// Adiciona o evento de clique ao botão de fechar
+document.getElementById('fechar-modal-carrossel').addEventListener('click', fecharModalCarrossel);
