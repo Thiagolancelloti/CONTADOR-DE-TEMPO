@@ -97,6 +97,21 @@ function criarCoracao() {
     setTimeout(() => coracao.remove(), 5000);
 }
 
+// Função para abrir o Spotify no aplicativo
+function abrirSpotifyNoApp() {
+    const playlistId = '4EMhnJuBMk47nHOuT8JJUa'; // ID da playlist
+    const urlSpotifyApp = `spotify:playlist:${playlistId}`; // Link para abrir no app
+    window.location.href = urlSpotifyApp; // Redireciona para o app
+}
+
+// Função para configurar o evento de clique no aviso do Spotify
+function configurarAvisoSpotify() {
+    const avisoSpotify = document.querySelector('.aviso-spotify');
+    if (avisoSpotify) {
+        avisoSpotify.addEventListener('click', abrirSpotifyNoApp);
+    }
+}
+
 // Função para exibir o modal
 function exibirModal() {
     const modal = document.getElementById('modal');
@@ -121,8 +136,6 @@ function exibirModal() {
     });
 }
 
-
-
 // Função para exibir a segunda tela
 function exibirSegundaTela() {
     const elementos = [
@@ -146,6 +159,9 @@ function exibirSegundaTela() {
 
     // Inicia o carrossel
     configurarCarrossel();
+
+    // Configura o evento de clique no aviso do Spotify
+    configurarAvisoSpotify();
 }
 
 // Exibe o modal quando o botão "Click" for clicado
