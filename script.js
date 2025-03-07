@@ -121,6 +121,8 @@ function exibirModal() {
     });
 }
 
+
+
 // Função para exibir a segunda tela
 function exibirSegundaTela() {
     const elementos = [
