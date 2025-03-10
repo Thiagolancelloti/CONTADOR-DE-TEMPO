@@ -14,7 +14,7 @@ body {
     justify-content: flex-start;
     height: 100vh;
     color: white;
-    overflow: hidden;
+    overflow-y: auto; /* Permite rolagem */
 }
 
 /* Contador de tempo */
